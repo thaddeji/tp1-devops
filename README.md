@@ -43,3 +43,14 @@ git log --oneline main..feature-branch
 Comment afficher la liste des branches actives et en cours de développement dans 
 Gitflow ?
 git branch -a
+Comment annuler une branche de correctif (hotfix) avant de la finaliser si vous constatez 
+une erreur ?
+Annuler les modifications locales (si elles ne sont pas encore commitées)
+git reset --hard
+Revenir à un commit précédent (si vous avez déjà commité)
+git reset --hard HEAD~n
+Supprimer la branche de correctif si nécessaire
+git checkout develop
+git branch -D hotfix/nom-de-la-branche
+Annuler les modifications poussées sur le dépôt distant (si applicable)
+git push origin hotfix/nom-de-la-branche --force
